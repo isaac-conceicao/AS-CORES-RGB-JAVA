@@ -35,7 +35,7 @@ public class RGB {
     
     public int getLuminosidade() {
         double luminosidade = (this.getR()*0.3 + this.getG()*0.59 + this.getB()*0.11);
-        return (int) Math.round(luminosidade);
+        return (int) (luminosidade*100);
     }
     
     public String getHex(){
@@ -47,5 +47,17 @@ public class RGB {
         if(this.getR() == cor2.getR() && this.getB() == cor2.getB() && this.getG() == cor2.getG()) {
             System.out.println("A CORES SAO IGUAIS");
         }
+    }
+    
+    public void clarear(float p){
+        this.red = (int) (this.getR()*(1+p));
+        this.green = (int) (this.getG()*(1+p));
+        this.blue = (int) (this.getB()*(1+p));
+    }
+    
+    public void escurecer(float p){
+        this.red = (int) (this.getR()*(1-p));
+        this.green = (int) (this.getG()*(1-p));
+        this.blue = (int) (this.getB()*(1-p));
     }
 }
